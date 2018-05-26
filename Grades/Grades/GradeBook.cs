@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    class GradeBook
+    public class GradeBook
     {
-        List<float> grades;
+        private List<float> grades;
+        public string Name;
 
         //ctor is the snippet for creating a constructor
         public GradeBook()
