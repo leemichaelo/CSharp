@@ -23,9 +23,13 @@ namespace TreehouseDefense
                     new MapLocation(7, 2, map)
                     }
                 );
-                
+
             }
             catch (OutOfBoundsException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(TowerOnPathException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -37,6 +41,8 @@ namespace TreehouseDefense
             {
                 Console.WriteLine("Unhandled Exception: " + ex);
             }
+
+            
         }
     }
 }
