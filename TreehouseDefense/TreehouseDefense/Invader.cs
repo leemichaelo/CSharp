@@ -10,16 +10,16 @@ namespace TreehouseDefense
     {
         private MapLocation _location;
 
-        //Getter
-        public MapLocation GetLocation()
+        public MapLocation Location
         {
-            return _location;
-        }
-
-        //Setter
-        public void SetLocation(MapLocation value)
-        {
-            _location = value;
+            get
+            {
+                return _location;
+            }
+            set
+            {
+                _location = value;
+            }
         }
     }
 }
