@@ -27,16 +27,4 @@ namespace TreehouseDefense
 
         }
     }
-    class TowerOnPathException : TreehouseDefenseException
-    {
-        public TowerOnPathException()
-        {
-
-        }
-
-        public TowerOnPathException(string message) : base(message)
-        {
-
-        }
-    }
 }

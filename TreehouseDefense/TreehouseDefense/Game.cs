@@ -52,20 +52,14 @@ namespace TreehouseDefense
             {
                 Console.WriteLine(ex.Message);
             }
-            catch(TowerOnPathException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
             catch (TreehouseDefenseException)
             {
-                Console.WriteLine("Unhandled TreehouseDefenseException.");
+                Console.WriteLine("Unhandled TreehouseDefenseException");
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Unhandled Exception: " + ex);
             }
-
-            
         }
     }
 }

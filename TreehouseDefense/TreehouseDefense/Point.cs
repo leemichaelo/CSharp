@@ -21,9 +21,7 @@ namespace TreehouseDefense
         //MapLocation location, int range
         public int DistanceTo(Point point)
         {
-
             return DistanceTo(point.X, point.Y);
         }
-
     }
 }
