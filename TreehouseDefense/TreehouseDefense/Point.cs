@@ -18,9 +18,12 @@ namespace TreehouseDefense
             return (int)Math.Sqrt(Math.Pow(X - x, 2) + Math.Pow(Y - y, 2));           
         }
 
-        public int DistainceToPoint(Point point)
+        //MapLocation location, int range
+        public int DistanceTo(Point point)
         {
+
             return DistanceTo(point.X, point.Y);
         }
+
     }
 }

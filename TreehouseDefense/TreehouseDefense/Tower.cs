@@ -8,30 +8,27 @@ namespace TreehouseDefense
 {
     class Tower
     {
+        private const int _range = 1;
+        private const int _power = 1;
+
+
         private readonly MapLocation _location;
 
-        public Tower(MapLocation location, Path path)
+        public Tower(MapLocation location)
         {
-            if (path.IsOnPath(location))
-            {
-                throw new TowerOnPathException(location.X + ", " + location.Y + " is on the path, towers cannot be placed on the path.");
-            }
-            else
-            {
-                _location = location;
-            }
+            _location = location;
+
         }
 
         public void FireOnInvaders(Invader[] invaders)
         {
-            int index = 0;
-
-            while (index < invaders.Length)
+            foreach (Invader invader in invaders)
             {
-                Invader invader = invaders[index];
-                //Do stuff with invader
-
-                index++;
+                if (invader.IsActive && _location.InRangeOf(invader.Location, _range))
+                {
+                    invader.DecreaseHealth(_power);
+                    break;
+                }
             }
         }
     }
