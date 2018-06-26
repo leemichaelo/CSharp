@@ -10,10 +10,10 @@ namespace TreehouseDefense
     {
         private readonly Path _path;
         private int _pathStep = 0;
+        protected virtual int StepSize { get; } = 1;
+        public virtual int Health { get; protected set; } = 2;
 
         public MapLocation Location => _path.GetLocationAt(_pathStep);
-
-        public int Health { get; private set; } = 2;
 
         public Invader(Path path) => _path = path;
 
@@ -26,7 +26,7 @@ namespace TreehouseDefense
 
         public void Move() => _pathStep += 1;
 
-        public void DecreaseHealth(int factor) => Health -= factor;
+        public virtual void DecreaseHealth(int factor) => Health -= factor;
 
     }
 }
