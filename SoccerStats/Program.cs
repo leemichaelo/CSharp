@@ -84,6 +84,7 @@ namespace SoccerStats
                     {
                         gameResult.PossesionPercent = parseDouble;
                     }
+                  
                     soccerResults.Add(gameResult);
                 }
             }
