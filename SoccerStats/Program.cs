@@ -43,15 +43,46 @@ namespace SoccerStats
                     //Breaks up the line into values based on the ,
                     string[] values = line.Split(',');
                     DateTime gameDate;
+
+                   //GameDate
                     if (DateTime.TryParse(values[0], out gameDate))
                     {
                         gameResult.GameDate = gameDate;
                     }
+                    //TeamName
                     gameResult.TeamName = values[1];
+                    //HomeOrAway
                     HomeOrAway homeOrAway;
                     if(Enum.TryParse(values[2], out homeOrAway))
                     {
                         gameResult.HomeOrAway = homeOrAway;
+                    }
+                    //Goals
+                    int parseInt;
+                    if(int.TryParse(values[3], out parseInt))
+                    {
+                        gameResult.Goals = parseInt;
+                    }
+                    //GoalAttempts
+                    if (int.TryParse(values[4], out parseInt))
+                    {
+                        gameResult.GoalAttempts = parseInt;
+                    }
+                    //ShotsOnGoal
+                    if (int.TryParse(values[5], out parseInt))
+                    {
+                        gameResult.ShotsOnGoal = parseInt;
+                    }
+                    //ShotsOffGoal
+                    if (int.TryParse(values[6], out parseInt))
+                    {
+                        gameResult.ShotsOffGoal = parseInt;
+                    }
+                    //PossesionPercent
+                    double parseDouble;
+                    if(double.TryParse(values[7], out parseDouble))
+                    {
+                        gameResult.PossesionPercent = parseDouble;
                     }
                     soccerResults.Add(gameResult);
                 }
