@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameResult.cs" />
+    <Compile Include="NewsSearch.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerComparer.cs" />
     <Compile Include="Program.cs" />
@@ -53,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="GettingGeneralNews.json" />
     <None Include="packages.config" />
     <None Include="Players.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,0 +1,43 @@
+{
+    "_type" : "News",
+    "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies",
+    "totalEstimatedMatches" : 88400,
+    "value" : [{
+        "name" : "Sailing Vies for Four Trophies",
+        "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891FE99A72...",
+        "image" : {
+            "thumbnail" : {
+                "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.9C23AA5...",
+                "width" : 650,
+                "height" : 341
+            }
+        },
+        "description" : "College Rankings, presented by Zim...",
+        "provider" : [{
+            "_type" : "Organization",
+            "name" : "contoso.com"
+        }],
+        "datePublished" : "2017-04-14T15:28:00"
+    },
+
+    {
+        "name" : "Fabrikam Sailing Club to host Mirror Dinghy...",
+        "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891F...",
+        "image" : {
+            "thumbnail" : {
+                "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.36...",
+                "width" : 448,
+                "height" : 300
+            }
+        },
+        "description" : "The sailing club that trained Olympian Ben...",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "Contoso"
+        }
+      ],
+        "datePublished" : "2017-04-04T11:02:00",
+        "category" : "Sports"
+    }]
+}
