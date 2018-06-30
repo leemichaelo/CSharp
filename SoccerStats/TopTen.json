@@ -1,0 +1,72 @@
+[
+  {
+    "first_name": "Eriq",
+    "id": 487,
+    "points_per_game": 9.5,
+    "second_name": "Zavaleta",
+    "team_name": "Toronto FC"
+  },
+  {
+    "first_name": "Ignacio",
+    "id": 167,
+    "points_per_game": 8.1,
+    "second_name": "Piatti",
+    "team_name": "Montreal Impact"
+  },
+  {
+    "first_name": "Taylor",
+    "id": 342,
+    "points_per_game": 8.0,
+    "second_name": "Peay",
+    "team_name": "Portland Timbers"
+  },
+  {
+    "first_name": "Sebastian",
+    "id": 469,
+    "points_per_game": 7.8,
+    "second_name": "Giovinco",
+    "team_name": "Toronto FC"
+  },
+  {
+    "first_name": "Diego",
+    "id": 350,
+    "points_per_game": 7.5,
+    "second_name": "Valeri",
+    "team_name": "Portland Timbers"
+  },
+  {
+    "first_name": "David",
+    "id": 247,
+    "points_per_game": 7.0,
+    "second_name": "Villa",
+    "team_name": "New York City FC"
+  },
+  {
+    "first_name": "Aaron",
+    "id": 105,
+    "points_per_game": 7.0,
+    "second_name": "Guillen",
+    "team_name": "FC Dallas"
+  },
+  {
+    "first_name": "Bill",
+    "id": 81,
+    "points_per_game": 7.0,
+    "second_name": "Hamid",
+    "team_name": "D.C. United"
+  },
+  {
+    "first_name": "Clarence",
+    "id": 387,
+    "points_per_game": 7.0,
+    "second_name": "Goodson",
+    "team_name": "San Jose Earthquakes"
+  },
+  {
+    "first_name": "Didier",
+    "id": 157,
+    "points_per_game": 6.9,
+    "second_name": "Drogba",
+    "team_name": "Montreal Impact"
+  }
+]
