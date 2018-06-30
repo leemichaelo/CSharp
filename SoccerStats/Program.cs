@@ -54,7 +54,7 @@ namespace SoccerStats
                     string[] values = line.Split(',');
                     DateTime gameDate;
 
-                   //GameDate
+                    //GameDate
                     if (DateTime.TryParse(values[0], out gameDate))
                     {
                         gameResult.GameDate = gameDate;
@@ -63,13 +63,13 @@ namespace SoccerStats
                     gameResult.TeamName = values[1];
                     //HomeOrAway
                     HomeOrAway homeOrAway;
-                    if(Enum.TryParse(values[2], out homeOrAway))
+                    if (Enum.TryParse(values[2], out homeOrAway))
                     {
                         gameResult.HomeOrAway = homeOrAway;
                     }
                     //Goals
                     int parseInt;
-                    if(int.TryParse(values[3], out parseInt))
+                    if (int.TryParse(values[3], out parseInt))
                     {
                         gameResult.Goals = parseInt;
                     }
@@ -90,11 +90,11 @@ namespace SoccerStats
                     }
                     //PossesionPercent
                     double parseDouble;
-                    if(double.TryParse(values[7], out parseDouble))
+                    if (double.TryParse(values[7], out parseDouble))
                     {
                         gameResult.PossesionPercent = parseDouble;
                     }
-                  
+
                     soccerResults.Add(gameResult);
                 }
             }
@@ -110,7 +110,7 @@ namespace SoccerStats
             {
                 players = serializer.Deserialize<List<Player>>(jsonReader);
             }
-            
+
             return players;
         }
 
@@ -120,11 +120,11 @@ namespace SoccerStats
             players.Sort(new PlayerComparer());
 
             int counter = 0;
-            foreach(var player in players)
+            foreach (var player in players)
             {
                 topTenPlayers.Add(player);
                 counter++;
-                if(counter == 10)
+                if (counter == 10)
                 {
                     break;
                 }
@@ -145,14 +145,18 @@ namespace SoccerStats
 
         public static string GetGoogleHomePage()
         {
-            var webClient = new WebClient();
-            byte[] googleHome = webClient.DownloadData("https://www.google.com");
-
-            using (var stream = new MemoryStream(googleHome))
-            using (var reader = new StreamReader(stream))
+            string google = "";
+            using (var webClient = new WebClient())
             {
-                return reader.ReadToEnd();
+                byte[] googleHome = webClient.DownloadData("https://www.google.com");
+
+                using (var stream = new MemoryStream(googleHome))
+                using (var reader = new StreamReader(stream))
+                {
+                    google = reader.ReadToEnd();
+                }
             }
+            return google;
         }
     }
 }
