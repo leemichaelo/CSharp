@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace SoccerStats
 {
     class Program
     {
+        public static object HttpUtility { get; private set; }
+
         static void Main(string[] args)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -22,16 +26,33 @@ namespace SoccerStats
             var topTenPlayers = GetTopTenPlayers(players);
             foreach (var player in topTenPlayers)
             {
-                List<NewsResult> newsResult = GetNewsForPlayer(string.Format("{0} {1}", player.FirstName, player.SecondName));
-                foreach(var result in newsResult)
+                List<NewsResult> newsResults = GetNewsForPlayer(string.Format("{0} {1}", player.FirstName, player.SecondName));
+                SentimentResponse sentimentResponse = GetSentimentResponse(newsResults);
+
+                foreach (var sentiment in sentimentResponse.Sentiments)
                 {
-                    Console.WriteLine(string.Format("Date: {0:f}, Headline: {1}, Summary: {2} \r\n", result.DatePublished, result.Headline, result.Summary));
+                    foreach (var newsResult in newsResults)
+                    {
+                        if (newsResult.Headline == sentiment.Id)
+                        {
+                            double score;
+                            if (double.TryParse(sentiment.Score, out score))
+                            {
+                                newsResult.SentimentScore = score;
+                                break;
+                            }
+                        }
+                    }
+                }
+                foreach (var result in newsResults)
+                {
+                    Console.WriteLine(string.Format("Sentiment Score: {0, }Date: {1:f}, Headline: {2}, Summary: {3} \r\n", result.SentimentScore, result.DatePublished, result.Headline, result.Summary));
                     Console.ReadKey();
                 }
             }
             fileName = Path.Combine(directory.FullName, "TopTen.json");
             SerializePlayersToFile(topTenPlayers, fileName);
-            
+
         }
 
         //Reads the whole file and returns it 
@@ -182,5 +203,33 @@ namespace SoccerStats
             }
             return results;
         }
+
+        public static SentimentResponse GetSentimentResponse(List<NewsResult> newsResults)
+        {
+            var sentimentResponse = new SentimentResponse();
+            var sentimentRequest = new SentimentRequest();
+            sentimentRequest.Documents = new List<Document>();
+
+            foreach (var result in newsResults)
+            {
+                sentimentRequest.Documents.Add(new Document { Id = result.Headline, Text = result.Summary });
+            }
+
+            using (var webClient = new WebClient())
+            {
+                webClient.Headers.Add("Ocp-Apim-Subscription-Key", "3421a580a5bc40b3a26888ff57d2d944");
+                webClient.Headers.Add(HttpRequestHeader.Accept, "application/json");
+                webClient.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                string requestJson = JsonConvert.SerializeObject(sentimentRequest);
+                byte[] requestBytes = Encoding.UTF8.GetBytes(requestJson);
+
+                byte[] response = webClient.UploadData("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment", requestBytes);
+                string sentiments = Encoding.UTF8.GetString(response);
+                sentimentResponse = JsonConvert.DeserializeObject<SentimentResponse>(sentiments);
+            }
+
+            return sentimentResponse;
+        }
+
     }
 }
