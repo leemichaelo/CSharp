@@ -14,23 +14,11 @@ namespace CSharpCollections
                 new Student() { Name = "Sally", GradeLevel = 2 }
             };
 
-            students.Sort();
+            SchoolRoll schoolRoll = new SchoolRoll();
 
-            Student newStudent = new Student()
-            {
-                Name = "Joe",
-                GradeLevel = 2
-            };
+            schoolRoll.AddStudents(students);
 
-            int index = students.BinarySearch(newStudent);
-
-            if(index < 0)
-            {
-                //the ~ is a bit wise operater and is the same as making index -
-                students.Insert(~index - 1, newStudent);
-            }
-
-            foreach(Student student in students)
+            foreach(Student student in schoolRoll.Students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
             }
