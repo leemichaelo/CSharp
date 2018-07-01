@@ -61,5 +61,34 @@ namespace CSharpCollections
             }
             return arrayToReturn;
         }
+
+        public static List<int> GetPowersOf2(int power)
+        {
+            List<int> listToReturn = new List<int>();
+            for (int i = 0; i < power + 1; i++)
+            {
+                listToReturn.Add(i * i);
+            }
+            return listToReturn;
+        }
+
+        //Adding to List
+        public static class MathHelpers
+        {
+            public static List<int> GetPowersOf2(int power)
+            {
+                List<int> listToReturn = new List<int>();
+                for (int i = 0; i < power + 1; i++)
+                {
+                    listToReturn.Add((int)System.Math.Pow(2, i));
+                }
+                foreach (var item in listToReturn)
+                {
+                    System.Console.WriteLine(item);
+                }
+                return listToReturn;
+            }
+        }
+
     }
 }
