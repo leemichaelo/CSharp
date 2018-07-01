@@ -45,6 +45,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoolRoll.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
