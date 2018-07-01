@@ -7,18 +7,25 @@ namespace CSharpCollections
     {
         static void Main(string[] args)
         {
-            List<Student> students = new List<Student>
+            HashSet<Student> students = new HashSet<Student>
             {
                 new Student() { Name = "Sally", GradeLevel = 3 },
                 new Student() { Name = "Bob", GradeLevel = 3 },
                 new Student() { Name = "Sally", GradeLevel = 2 }
             };
 
-            SchoolRoll schoolRoll = new SchoolRoll();
+            Student joe = new Student() { Name = "Joe", GradeLevel = 2 };
+            students.Add(joe);
 
-            schoolRoll.AddStudents(students);
+            Student duplicateJoe = new Student() { Name = "Joe", GradeLevel = 2 };
+            students.Add(duplicateJoe);
 
-            foreach(Student student in schoolRoll.Students)
+            if (students.Contains(joe))
+            {
+
+            }
+
+            foreach (Student student in students)
             {
                 Console.WriteLine($"{student.Name} is in grade {student.GradeLevel}");
             }

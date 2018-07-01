@@ -17,11 +17,35 @@ namespace CSharpCollections
             int result = this.Name.CompareTo(that.Name);
 
             //If names are the same, compare against gradelevel
-            if(result == 0)
+            if (result == 0)
             {
                 result = this.GradeLevel.CompareTo(that.GradeLevel);
             }
             return result;
+        }
+
+        //Override hashcode so that students with the same name and grade level arent duplicated
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() + GradeLevel.GetHashCode();
+        }
+
+        //Override equals so that students with the same name and gradelevel are not equal
+        public override bool Equals(object obj)
+        {
+            bool valueToReturn = true;
+            Student that = obj as Student;
+
+            if (that == null)
+            {
+                valueToReturn = false;
+            }
+            else
+            {
+                valueToReturn = this.Name == that.Name && this.GradeLevel == that.GradeLevel;
+            }
+
+            return valueToReturn;
         }
     }
 }
