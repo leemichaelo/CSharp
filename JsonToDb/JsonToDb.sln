@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonToDb", "JsonToDb\JsonToDb.csproj", "{B386B0A3-9A81-419A-938F-30E7CFF9862B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseModels", "DatabaseModels\DatabaseModels.csproj", "{F6525E20-AF2F-4230-93E1-3B4A20433D0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B386B0A3-9A81-419A-938F-30E7CFF9862B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B386B0A3-9A81-419A-938F-30E7CFF9862B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B386B0A3-9A81-419A-938F-30E7CFF9862B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B386B0A3-9A81-419A-938F-30E7CFF9862B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6525E20-AF2F-4230-93E1-3B4A20433D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6525E20-AF2F-4230-93E1-3B4A20433D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6525E20-AF2F-4230-93E1-3B4A20433D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6525E20-AF2F-4230-93E1-3B4A20433D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FA2BCCB-531E-4279-8141-E3B369C60FF4}
+	EndGlobalSection
+EndGlobal
